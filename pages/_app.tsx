@@ -1,6 +1,7 @@
+import * as React from 'react';
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import AdminLayout from '../components/AdminLayout'
+import Layout from '../components/AdminLayout'
 import { useRouter } from 'next/router';
 import { Provider } from "react-redux";
 import { store, persistor } from "../redux/store";
@@ -12,9 +13,7 @@ import { useEffect } from 'react';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  
-  const { asPath } = useRouter();
- 
+   
   const connectdb = async()=>{
     await mongoConnect();
   }
@@ -35,47 +34,14 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 
   
-  if (asPath === '/naija_admin'|| asPath === '/naija_admin/update' || asPath === '/naija_admin/addcinemas'
-  || asPath === '/naija_admin/addmovies' || asPath === '/naija_admin/youtube') {
     return (
-      <>
+      <React.Fragment>
       <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
        {()=> (
-       <AdminLayout>
-       <Component {...pageProps} />
-       </AdminLayout>
-       )}
-       </PersistGate>
-     </Provider>
-
-     <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
-      />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${gtag.GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
-        }}
-      />
-     </>
-  )
-  } else {
-    return (
-      <>
-      <Provider store={store}>
-       <PersistGate loading={null} persistor={persistor}>
-        {()=> (
-         <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
         )}
        </PersistGate>
      </Provider>
@@ -98,9 +64,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           `,
         }}
       />
-     </>
+     </React.Fragment>
   )
-  }
+  
 }
 
 export default MyApp

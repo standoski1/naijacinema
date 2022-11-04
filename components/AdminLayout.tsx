@@ -1,5 +1,6 @@
 import Link from "next/link";
-import React,{ useEffect, useState } from "react";
+import * as React from 'react';
+import { ReactElement, useEffect, useState } from "react";
 import Footer from "./AdminFooter";
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from "../redux/userSlice";
@@ -8,7 +9,7 @@ import { useRouter } from "next/router";
 
 
 
-export default function Layout({children}:{children: React.ReactNode}) {
+export default function Layout({children}: {children: ReactElement}) {
 
     const [sideBar, setsideBar] = useState(false)
     const dispatch = useDispatch()
@@ -46,8 +47,12 @@ export default function Layout({children}:{children: React.ReactNode}) {
        
 
 if (accessToken) {
+
+    if (routepath === '/naija_admin'|| routepath === '/naija_admin/update' || routepath === '/naija_admin/addcinemas'
+      || routepath === '/naija_admin/addmovies' || routepath === '/naija_admin/youtube') {
+    
     return(
-       
+       <>
          <div className="nav-fixed body">
           <nav className="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
             
@@ -194,8 +199,18 @@ if (accessToken) {
             
         </div>
     </div>
-        
+    </>    
   )
+
+}
+}
+
+else{
+    return (
+        <>
+        {children}
+        </>
+    )
 }
          
 }  
