@@ -2,9 +2,8 @@ import Link from "next/link";
 import * as React from 'react';
 import { ReactElement, useEffect, useState } from "react";
 import Footer from "./AdminFooter";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { logoutUser } from "../redux/userSlice";
-import { RootState } from "../redux/store";
 import { useRouter } from "next/router";
 
 
@@ -13,7 +12,6 @@ export default function Layout({children}: {children: ReactElement}) {
 
     const [sideBar, setsideBar] = useState(false)
     const dispatch = useDispatch()
-    const {accessToken} = useSelector((state: RootState)=> state.user)
     const router = useRouter()
     const routepath = router.asPath
     
@@ -39,14 +37,8 @@ export default function Layout({children}: {children: ReactElement}) {
         dispatch(logoutUser())
     }
 
-    useEffect(() => {
-        if (!accessToken) {
-          router.push("/")
-        }
-      }, [accessToken])
        
 
-if (accessToken) {
 
     if (routepath === '/naija_admin'|| routepath === '/naija_admin/update' || routepath === '/naija_admin/addcinemas'
       || routepath === '/naija_admin/addmovies' || routepath === '/naija_admin/youtube') {
@@ -203,7 +195,7 @@ if (accessToken) {
   )
 
 }
-}
+
 
 else{
     return (
