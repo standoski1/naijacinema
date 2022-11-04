@@ -11,7 +11,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['localhost'],
+    domains: ['localhost','naijacinemas.herokuapp.com'],
   },
   typescript: {
     ignoreBuildErrors: true,
