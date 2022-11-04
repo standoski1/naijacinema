@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /naija_admin/
+Disallow: /404
+
+
+Sitemap: https://www.naijacinemas.com/api/sitemap.xml
