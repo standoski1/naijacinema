@@ -13,7 +13,7 @@ const JoditEditor = dynamic(
 );
 
 
-export default function update() {
+export default function Update() {
 
     const {accessToken} = useSelector((state: RootState)=> state.user)
     const dispatch = useDispatch()

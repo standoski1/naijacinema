@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from '../styles/Header.module.css'
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 
 
@@ -22,11 +23,11 @@ export default function Header() {
             </div>
         </div>
            <br />
-          <a href="/">Home</a>
+          <Link href="/"><a>Home</a></Link>
           <hr style={{color:'#fff'}}/>
-          <a href="/about">privacy policy</a>
+          <Link href="/about"><a>privacy policy</a></Link>
           <hr style={{color:'#fff'}}/>
-          <a href="/contact">Contact</a>
+          <Link href="/disclaimer"><a>disclaimer</a></Link>
           <hr style={{color:'#fff'}}/>
           <div className="dropdown menu-large nav-item"> 
           <span className="dropdown-toggle nav-link" data-bs-toggle="dropdown">Cinemas by States</span>

@@ -18,9 +18,9 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div className="footer-social-info">
-                            <a href="https://facebook.com/naijacinemas" target="_blank" title="facebook"><i className="fa fa-facebook-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
-                            <a href="https://twitter.com/naija_cinemas" target="_blank" title="twitter"><i className="fa fa-twitter-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
-                            <a href="https://instagram.com/naija_cinemas" target="_blank" title="instagram"><i className="fa fa-instagram" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
+                            <a href="https://facebook.com/naijacinemas" target="_blank" rel="noopener noreferrer" title="facebook"><i className="fa fa-facebook-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/naija_cinemas" target="_blank" rel="noopener noreferrer" title="twitter"><i className="fa fa-twitter-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
+                            <a href="https://instagram.com/naija_cinemas" target="_blank" rel="noopener noreferrer" title="instagram"><i className="fa fa-instagram" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
                         </div>
 
                         <p className="copywrite-text">
@@ -28,7 +28,7 @@ export default function Footer() {
                         </p> 
                         <p className="copywrite-text">
                          Copyright &copy; All rights reserved | developed by &nbsp;
-                         <a href="https://grafytech.com" target="_blank">grafytech</a>
+                         <a href="https://grafytech.com" target="_blank" rel="noopener noreferrer">grafytech</a>
                         </p> 
                     </div>
                 </div>
