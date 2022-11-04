@@ -3,7 +3,7 @@ import https from 'https'
 
 export const axiosInstance = axios.create({
   // baseURL: "http://localhost:3000/",
-  baseURL: "https://naijacinemas.herokuapp.com/",
+  baseURL: "https://naijacinemas.netlify.app/",
   timeout: 360000,
   httpsAgent: new https.Agent({ keepAlive: true }),
 });
@@ -11,7 +11,7 @@ export const axiosInstance = axios.create({
 
 export const tokenInstance = (TOKEN:string) => axios.create({
   // baseURL: "http://localhost:3000/",
-  baseURL: "https://naijacinemas.herokuapp.com/",
+  baseURL: "https://naijacinemas.netlify.app/",
   timeout: 360000,
   httpsAgent: new https.Agent({ keepAlive: true }),
   headers: {  token: `Bearer ${TOKEN}` },
