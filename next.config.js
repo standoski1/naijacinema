@@ -16,7 +16,6 @@ const nextConfig = withPWA({
   typescript: {
     ignoreBuildErrors: true,
   },
-  target: "serverless",
 })
 
 module.exports = nextConfig
