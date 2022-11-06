@@ -17,17 +17,16 @@ interface MulterRequest extends NextApiRequest {
   headers: any
 }
 
-handler.use(uploads.single('filez')).post(async (req: MulterRequest, res:NextApiResponse)=>{
+handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
   const {title} = req.body
   const {text} = req.body
   const {category} = req.body
-  const {filename} = req.file
-  const { origin } = absoluteUrl(req)
-  const URL = `${origin}/uploads/${filename}` 
+  const filename = req?.file
+  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename.key
   
   try {
     await Post.create({
-      title,text,image:URL,category
+      title,text,image,category
     })
     res.status(200).json('successfull')
   } catch (error:any) {

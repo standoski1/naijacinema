@@ -49,7 +49,7 @@ export default function HomeComp() {
     formField.append('title',Post.title)
     formField.append('text',Post.text)
     formField.append('category',Post.category)
-    formField.append('filez',image!)
+    formField.append('file',image!)
     setLoading(true)
     await tokenInstance(accessToken).post("api/controller/post/post", formField).then((res)=>{
       Swal.fire({
@@ -73,6 +73,13 @@ export default function HomeComp() {
       if (err?.response?.data === "not authenticated") {
         dispatch(logoutUser())
       } 
+      else if (err?.response?.data.message === "Invalid file type") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid file type, only JPEG and PNG is allowed!',
+          showConfirmButton: false,
+        })
+      }
       setLoading(false)
     })
   }

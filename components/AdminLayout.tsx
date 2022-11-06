@@ -48,7 +48,7 @@ export default function Layout({children}: {children: ReactElement}) {
          <div className="nav-fixed body">
           <nav className="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
             
-            <button onClick={handletoggle} className="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+            <button onClick={handletoggle} className="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i className="fa fa-bars fa-2x"></i></button>
             
             <a className="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html"> <img src="/icon/royalti.png" style={{width:'30px',height:'25px'}} alt="royalti" /> Royalti</a>
             
@@ -106,25 +106,8 @@ export default function Layout({children}: {children: ReactElement}) {
                 <nav className="sidenav shadow-right sidenav-light">
                     <div className="sidenav-menu">
                         <div className="nav accordion" id="accordionSidenav">
-                            
-                            <div className="sidenav-menu-heading d-sm-none">Account</div>
-                            
-                            <a className="nav-link d-sm-none" href="#!">
-                                <div className="nav-link-icon"><i data-feather="bell"></i></div>
-                                Alerts
-                                <span className="badge bg-warning-soft text-warning ms-auto">4 New!</span>
-                            </a>
-                            
-                            <a className="nav-link d-sm-none" href="#!">
-                                <div className="nav-link-icon"><i data-feather="mail"></i></div>
-                                Messages
-                                <span className="badge bg-success-soft text-success ms-auto">2 New!</span>
-                            </a>
 
 
-
-
-                           
                             <div className="sidenav-menu-heading">Super Admin</div>
                             
                             <Link href="/naija_admin">

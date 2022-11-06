@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import handler from '../../middleware/handler';
 import { uploads } from '../../middleware/uploads';
-import absoluteUrl from 'next-absolute-url'
 import { Cinema } from '../../model/cinemaModel';
 
 
@@ -17,17 +16,16 @@ interface MulterRequest extends NextApiRequest {
   headers: any
 }
 
-handler.use(uploads.single('file')).post(async (req: MulterRequest, res:NextApiResponse)=>{
-  const {name} = req.body
-  const {state} = req.body
-  const {address} = req.body
-  const {filename} = req.file
-  const { origin } = absoluteUrl(req)
-  const URL = `${origin}/uploads/${filename}` 
+handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
+  const {name} = req?.body
+  const {state} = req?.body
+  const {address} = req?.body
+  const filename = req?.file
+  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename.key
   
   try {
     const newCinema = await Cinema.create({
-        name,state,image:URL,address
+        name,state,image,address
     })
     res.status(200).json(newCinema)
   } catch (error:any) {

@@ -2,8 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import handler from '../../middleware/handler';
 import { uploads } from '../../middleware/uploads';
 import { Post } from '../../model/postModel';
-import absoluteUrl from 'next-absolute-url'
-import fs from 'fs'
+import { DeleteObjectCommand } from "@aws-sdk/client-s3";
+import dotenv from 'dotenv'
+dotenv.config()
+import { s3 } from '../../../../components/creadentials';
 
 
 
@@ -19,23 +21,33 @@ interface MulterRequest extends NextApiRequest {
 }
 
 
-handler.use(uploads.single('file')).post(async (req: MulterRequest, res:NextApiResponse)=>{
+handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
   const {title} = req.body
   const {text} = req.body
   const {category} = req.body
   const {id} = req.body
   const {oldimage} = req.body
-  const newImage = req?.file?.filename
-  const { origin } = absoluteUrl(req)
-  const URL = `${origin}/uploads/${newImage}` 
-  const delImage = "./public/uploads/" + oldimage?.split("/")[4]
+  const filename = req?.file
+  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename.key  
+  const delImage = "naijacinemas/" + oldimage?.split("/")[4]
   
   try {
-    if (newImage) {
+    if (filename) {
         await Post.findByIdAndUpdate(id, {
-            title,text,image:URL,category
+            title,text,image,category
         })
-        fs.unlinkSync(delImage)
+        const params = {
+          Bucket: process.env.AWS_BUCKET,
+          Key: delImage
+      };
+        await s3.send(new DeleteObjectCommand(params), (error, data) => {
+        if (error) {
+          console.log(error.message);
+        }
+        else{
+          console.log("deleted" + data);
+        }
+      }); 
         const findpost = await Post.find({}).sort({createdAt:-1})
         res.status(200).json(findpost)
     } else {

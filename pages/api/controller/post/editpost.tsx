@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Post } from "../../model/postModel";
-import fs from 'fs'
+import { DeleteObjectCommand } from "@aws-sdk/client-s3";
+import dotenv from 'dotenv'
+dotenv.config()
+import { s3 } from "../../../../components/creadentials";
 
 
 
@@ -23,10 +26,21 @@ export default async function EditPost(req: NewNextRequest, res: NextApiResponse
     if(req.method === "POST"){
       const {id} = req.body
       const {img} = req.body
-      const delImage = "./public/uploads/" + img?.split("/")[4]
+      const delImage = "naijacinemas/" + img?.split("/")[4]
       try {
         const dellpost = await Post.findByIdAndDelete(id)
-        fs.unlinkSync(delImage)
+        const params = {
+          Bucket: process.env.AWS_BUCKET,
+          Key: delImage
+      };
+        await s3.send(new DeleteObjectCommand(params), (error, data) => {
+        if (error) {
+          console.log(error.message);
+        }
+        else{
+          console.log("deleted" + data);
+        }
+      }); 
         res.status(200).json(dellpost)
       } catch (error:any) {
         res.status(401).json(error.message)

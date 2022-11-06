@@ -21,7 +21,7 @@ export default function Login() {
         dispatch(loginUser(res.data));
       }).catch((err)=>{
         console.log(err.message);
-        if (err.response.data === "wrong credentials") {
+        if (err?.response?.data === "wrong credentials") {
             Swal.fire({
                 icon: 'error',
                 title: 'The Email or Password you entered is not correct',
