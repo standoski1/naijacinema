@@ -19,7 +19,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div className="footer-social-info">
-                            <a href="https://facebook.com/naijacinemas" target="_blank" rel="noopener noreferrer" title="facebook"><i className="fa fa-facebook-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
+                            <a href="https://facebook.com/profile.php?id=100086333080167" target="_blank" rel="noopener noreferrer" title="facebook"><i className="fa fa-facebook-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
                             <a href="https://twitter.com/naija_cinemas" target="_blank" rel="noopener noreferrer" title="twitter"><i className="fa fa-twitter-square" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
                             <a href="https://instagram.com/naija_cinemas" target="_blank" rel="noopener noreferrer" title="instagram"><i className="fa fa-instagram" style={{fontSize:'22px'}} aria-hidden="true"></i></a>
                         </div>

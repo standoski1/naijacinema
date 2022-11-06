@@ -141,15 +141,6 @@ export default function Layout({children}: {children: ReactElement}) {
                                 add Youtube
                                </a>
                             </Link>
-
-                            <a className="nav-link" href="tables.html">
-                                <div className="nav-link-icon"><i data-feather="filter"></i></div>
-                                Files
-                            </a>
-                            <a className="nav-link" href="tables.html">
-                                <div className="nav-link-icon"><i data-feather="filter"></i></div>
-                                Accounting
-                            </a>
                             
                     </div>
                     </div>
