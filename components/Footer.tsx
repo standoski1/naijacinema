@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function Footer() {
   return (
     <footer className="footer-area">
         <div className="footer-logo mb-100">
-            <a href="index.html"><img src="/img/naijacinema.png" alt=""/></a>
+        <Link href="/"><a><img src="/img/naijacinema.png" alt=""/></a></Link>
         </div>
         <div className="container">
             <div className="row">
@@ -12,9 +13,9 @@ export default function Footer() {
                     <div className="footer-content text-center">
                         <div className="footer-nav">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Disclaimer</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
+                                <li><Link href="/"><a>Home</a></Link></li>
+                                <li><Link href="/disclaimer"><a>Disclaimer</a></Link></li>
+                                <li><Link href="/privacy"><a>Privacy Policy</a></Link></li>
                             </ul>
                         </div>
                         <div className="footer-social-info">

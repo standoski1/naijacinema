@@ -16,6 +16,7 @@ const nextConfig = withPWA({
   typescript: {
     ignoreBuildErrors: true,
   },
+  poweredByHeader: false,
 })
 
 module.exports = nextConfig

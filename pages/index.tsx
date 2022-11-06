@@ -113,7 +113,7 @@ const Home: NextPage = ({data, error, youtube}:any) => {
                                     <div className="col-12 col-sm-6" key={i}>
                                         <div className="single-blog-post style-2 mb-5">
                                             <div className="blog-thumbnail">
-                                            <Link href={`/post/${data?.slug}`}><a><Image src={data?.image} width='800px' height='450px' alt=""/></a></Link>
+                                            <Link href={`/post/${data?.slug}`}><a><Image src={data?.image} width='800px' height='450px' alt={Movies[0]?.title}/></a></Link>
                                             </div>
                                             <div className="blog-content">
                                                 <span className="post-date">{moment(data?.createdAt).fromNow()}</span>
@@ -144,7 +144,7 @@ const Home: NextPage = ({data, error, youtube}:any) => {
     
     <div className="big-add-area">
         <div className="container-fluid">
-            <a href="#"><img src="/img/cinema5.jpg" style={{width:'100%',height:'200px',objectFit:'cover'}} alt=""/></a>
+            <img src="/img/cinema5.jpg" style={{width:'100%',height:'200px',objectFit:'cover'}} alt="nigeria cinemas"/>
         </div>
     </div>
 
@@ -160,13 +160,13 @@ const Home: NextPage = ({data, error, youtube}:any) => {
                  {News?.slice(0,3).map((data,i)=>(
                     <div className="single-blog-post d-flex flex-wrap style-5 mb-30" key={i}>
                         <div className="blog-thumbnail">
-                        <Link href={`/post/${data?.slug}`}><a><Image src={data?.image} width='800px' height='500px' alt=""/></a></Link>
+                        <Link href={`/post/${data?.slug}`}><a><Image src={data?.image} width='800px' height='500px' alt={data?.title}/></a></Link>
                         </div>
                         <div className="blog-content">
                             <span className="post-date">{moment(data?.createdAt).fromNow()}</span>
                             <Link href={`/post/${data?.slug}`}><a className="post-title">{data?.title}</a></Link>
                             <a className="post-author">By Mercy</a>
-                            <p dangerouslySetInnerHTML={{ __html: data?.text.slice(0,250) + "&hellip;"}}></p>
+                            <p dangerouslySetInnerHTML={{ __html: data?.text.slice(0,150) + "&hellip;"}}></p>
                         </div>
                     </div>
                   ))}

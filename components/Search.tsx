@@ -13,8 +13,10 @@ export default function Search() {
             <div className="row h-100 align-items-center">
                 <div className="col-12 col-lg-9">
                     <div className="post-content">
-                        <a className="post-title">Welcome To <br/> Naija Cinemas</a>
-                        <p>Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Proin ac urna at lectus volutpat lobortis. Vestibulum venenatis iaculis diam vitae lobortis. Donec tincidunt viverra elit, sed consectetur est pr etium ac. Mauris nec mauris tellus. </p>
+                        <h1 className="post-title">Welcome To <br/> Naija Cinemas</h1>
+                        <p>We offer you updates on the latest blockbusters showing in cinemas around you and also latest entertainment news, and exciting movie reviews.
+                          you can be rest assured that we have you covered when moving to another state, as you can find every cinema in every state, right here..
+                        </p>
                         
 
                         <div className="row height d-flex justify-content-center align-items-center">
