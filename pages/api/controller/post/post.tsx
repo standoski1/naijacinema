@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import handler from '../../middleware/handler';
 import { uploads } from '../../middleware/uploads';
 import { Post } from '../../model/postModel';
-import absoluteUrl from 'next-absolute-url'
 
 
 
@@ -22,7 +21,7 @@ handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
   const {text} = req.body
   const {category} = req.body
   const filename = req?.file
-  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename.key
+  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename?.key
   
   try {
     await Post.create({

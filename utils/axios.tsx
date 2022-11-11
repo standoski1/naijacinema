@@ -14,5 +14,5 @@ export const tokenInstance = (TOKEN:string) => axios.create({
   baseURL: "https://naijacinemas.com/",
   timeout: 360000,
   httpsAgent: new https.Agent({ keepAlive: true }),
-  headers: {  token: `Bearer ${TOKEN}` },
+  headers: { token: `Bearer ${TOKEN}`},
 });
