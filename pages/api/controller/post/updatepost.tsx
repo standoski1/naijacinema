@@ -11,12 +11,6 @@ import { s3 } from '../../../../components/creadentials';
 
 
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
-
 interface MulterRequest extends NextApiRequest {
   file: any
   headers: any

@@ -5,11 +5,6 @@ import { Post } from '../../model/postModel';
 
 
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
 
 interface MulterRequest extends NextApiRequest {
   file: any
