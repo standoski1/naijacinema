@@ -50,7 +50,7 @@ export default function Layout({children}: {children: ReactElement}) {
             
             <button onClick={handletoggle} className="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i className="fa fa-bars fa-2x"></i></button>
             
-            <a className="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html"> <img src="/icon/royalti.png" style={{width:'30px',height:'25px'}} alt="royalti" /> Royalti</a>
+            <a className="navbar-brand pe-3 ps-4 ps-lg-2" href="index.html"> <img src="/img/cinema2.png" style={{width:'30px',height:'25px'}} alt="naijacinemas" /> Royalti</a>
             
             <form className="form-inline me-auto d-none d-lg-block me-3">
                 <div className="input-group input-group-joined input-group-solid">
