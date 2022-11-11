@@ -1,11 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import handler from '../../middleware/handler';
 import { uploads } from '../../middleware/uploads';
 import { Post } from '../../model/postModel';
 import { DeleteObjectCommand } from "@aws-sdk/client-s3";
 import dotenv from 'dotenv'
 dotenv.config()
 import { s3 } from '../../../../components/creadentials';
+import updateHandler from '../../middleware/updatehandler';
 
 
 
@@ -23,7 +23,7 @@ interface MulterRequest extends NextApiRequest {
 }
 
 
-handler.use(uploads).put(async (req: MulterRequest, res:NextApiResponse)=>{
+updateHandler.use(uploads).put(async (req: MulterRequest, res:NextApiResponse)=>{
   const {title} = req.body
   const {text} = req.body
   const {category} = req.body
@@ -67,7 +67,7 @@ handler.use(uploads).put(async (req: MulterRequest, res:NextApiResponse)=>{
 })
 
 
-export default handler
+export default updateHandler
 
 
 
