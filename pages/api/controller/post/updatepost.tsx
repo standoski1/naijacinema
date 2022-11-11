@@ -28,7 +28,7 @@ handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
   const {id} = req.body
   const {oldimage} = req.body
   const filename = req?.file
-  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename.key  
+  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename?.key  
   const delImage = "naijacinemas/" + oldimage?.split("/")[4]
   
   try {

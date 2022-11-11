@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import handler from '../../middleware/handler';
+import Cinhandler from '../../middleware/cinemahandler';
 import { uploads } from '../../middleware/uploads';
 import { Cinema } from '../../model/cinemaModel';
 
@@ -16,12 +16,12 @@ interface MulterRequest extends NextApiRequest {
   headers: any
 }
 
-handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
+Cinhandler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
   const {name} = req?.body
   const {state} = req?.body
   const {address} = req?.body
   const filename = req?.file
-  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename.key
+  const image = 'https://newnodebucket.s3.eu-west-2.amazonaws.com/' + filename?.key
   
   try {
     const newCinema = await Cinema.create({
@@ -34,7 +34,7 @@ handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
 })
 
 
-export default handler
+export default Cinhandler
 
 
 
