@@ -21,7 +21,7 @@ interface MulterRequest extends NextApiRequest {
 }
 
 
-handler.use(uploads).post(async (req: MulterRequest, res:NextApiResponse)=>{
+handler.use(uploads).put(async (req: MulterRequest, res:NextApiResponse)=>{
   const {title} = req.body
   const {text} = req.body
   const {category} = req.body

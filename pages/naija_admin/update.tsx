@@ -98,7 +98,7 @@ export default function Update() {
         formField.append('oldimage',ModalPost.oldImg)
         formField.append('file',ModalFile!)
         setLoading(true)
-        await tokenInstance(accessToken).post("api/controller/post/updatepost", formField).then((res)=>{
+        await tokenInstance(accessToken).put("api/controller/post/updatepost", formField).then((res)=>{
             setPost(res.data)
           Swal.fire({
             icon: 'success',
