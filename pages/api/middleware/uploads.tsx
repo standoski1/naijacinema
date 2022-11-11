@@ -4,11 +4,7 @@ import {s3} from '../../../components/creadentials'
 import dotenv from 'dotenv'
 dotenv.config()
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-}
+
 
 export const uploads = function(req, res, next) {
 

@@ -5,6 +5,11 @@ import { Cinema } from '../../model/cinemaModel';
 
 
 
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+}
 
 interface MulterRequest extends NextApiRequest {
   file: any

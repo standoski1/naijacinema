@@ -3,11 +3,7 @@ import nextConnect from "next-connect";
 import jwt from 'jsonwebtoken'
 
 
-export const config = {
-    api: {
-      bodyParser: false,
-    },
-  }
+
 
 const Cinhandler = nextConnect<NextApiRequest, NextApiResponse>({
   onError(error, req, res){
