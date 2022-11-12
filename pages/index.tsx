@@ -99,7 +99,7 @@ const Home: NextPage = ({data, error, youtube}:any) => {
                                     <div className="col-12">
                                         <div className="single-blog-post style-2 mb-5">
                                             <div className="blog-thumbnail">
-                                                <Link href={`/post/${Movies[0]?.slug}`}><a><Image src={Movies[0]?.image} width='950px' height='450px' alt=""/></a></Link>
+                                                <Link href={`/post/${Movies[0]?.slug}`}><a><img src={Movies[0]?.image} style={{width:'100%', height:'500px'}} alt={Movies[0]?.title}/></a></Link>
                                             </div>
 
                                             <div className="blog-content">
@@ -113,7 +113,7 @@ const Home: NextPage = ({data, error, youtube}:any) => {
                                     <div className="col-12 col-sm-6" key={i}>
                                         <div className="single-blog-post style-2 mb-5">
                                             <div className="blog-thumbnail">
-                                            <Link href={`/post/${data?.slug}`}><a><Image src={data?.image} width='800px' height='450px' alt={Movies[0]?.title}/></a></Link>
+                                            <Link href={`/post/${data?.slug}`}><a><img src={data?.image} style={{width:'100%', height:'450px'}} alt={Movies[0]?.title}/></a></Link>
                                             </div>
                                             <div className="blog-content">
                                                 <span className="post-date">{moment(data?.createdAt).fromNow()}</span>

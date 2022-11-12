@@ -35,38 +35,47 @@ const columns = [
       {
           name: 'movie name',
           selector: row => row.movies,
+          wrap: true
       },
       {
           name: 'duration',
           selector: row => row.duration,
+          wrap: true
       },
       {
           name: 'mon',
           selector: row => row.mon,
+          wrap: true
       },
       {
           name: 'tue',
           selector: row => row.tue,
+          wrap: true
       },
       {
           name: 'wed',
           selector: row => row.wed,
+          wrap: true
       },
       {
           name: 'thur',
           selector: row => row.thur,
+          wrap: true
       },
       {
           name: 'fri',
           selector: row => row.fri,
+          wrap: true
       },
       {
           name: 'sat',
           selector: row => row.sat,
+          wrap: true
       },
       {
           name: 'sun',
           selector: row => row.sun,
+          wrap: true
       },
   ];
     
@@ -90,20 +99,21 @@ const columns = [
    
     <div className="news-area section-padding-100-70">
         <div className="container">
-            <h5><span style={{color:'grey'}}>Cinema name: </span><span>{data.cinema_id.name}</span></h5>
-            <h5><span style={{color:'grey'}}>Location: </span><span>{data.cinema_id.state}</span></h5>
-            <h5><span style={{color:'grey'}}>Address: </span><span>{data.cinema_id.address}</span></h5>
-            <h5><span style={{color:'grey'}}>Showing: </span><span>{`movies showing from ${data.date}`}</span></h5>
+            <h5><span style={{color:'grey'}}>Cinema name: </span><span>{data?.cinema_id?.name}</span></h5>
+            <h5 style={{color:'grey',fontSize:'12px'}}><span>Location: </span><span>{data?.cinema_id?.state}</span></h5>
+            <h5 style={{color:'grey',fontSize:'12px'}}><span>Address: </span><span>{data?.cinema_id?.address}</span></h5>
+            <h5 style={{color:'grey',fontSize:'12px'}}><span>Showing: </span><span>{`movies showing from ${data?.date}`}</span></h5>
             <div className="row">
                 <div className="col-12 col-md-12">
                 <DataTable
                     columns={columns}
-                    data={data.movies}
+                    data={data?.movies}
                     striped={true}
                     pagination
                     fixedHeader
                     fixedHeaderScrollHeight='450px'
                     highlightOnHover
+                
                 />
                 </div>
             </div>

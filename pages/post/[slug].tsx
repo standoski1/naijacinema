@@ -135,7 +135,7 @@ export default function Single({data, error, slug, singdata}:any) {
                         </div>
                     </div>
                     
-                    <Image className="mb-30" src={singdata?.image} alt="" width="900" height="450px" />
+                    <img className="mb-30" src={singdata?.image} alt={singdata?.title} style={{width:'100%', height:'550px'}}/>
 
                     <span>
                     <span>Kindly share this story:</span>
