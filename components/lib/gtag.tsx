@@ -1,4 +1,4 @@
-export const GA_TRACKING_ID = process.env.GA_TRACKING_ID
+export const GA_TRACKING_ID = 'G-S8RFXKQEM9'
 
 declare const window: any;
 
